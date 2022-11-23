@@ -1,0 +1,42 @@
+{
+    "//name": "thuộc tính name định nghĩa tên của extension",
+    "name": "Stick Notes",
+    "//version": "version extension bạn có thể đánh tùy ý",
+    "version": "1.0",
+    "//manifest_version": "version của mainfest cái này phụ thuộc vào version của chrome",
+    "manifest_version": 2,
+    "description" : "stickNote by thangnotes.com",
+    "background": {
+        "//background":"file js được nhúng ở backgroud của extension thường dùng cho cài đặt, setting...",
+        "scripts": ["js/background.js"]
+      },
+    "content_scripts": [
+        {
+            "//matches": "nhúng file js và css vào trang web ở đây mình include cho tất cả trang web",
+            "matches": [ "<all_urls>"],
+            "js": [
+                "js/jquery-3.6.1.min.js",
+                "js/jquery-ui.min.js",
+                "js/sticknote.js"
+            ],
+            "css": [ "sticknote.css" ]
+        }
+    ],
+    "browser_action": {
+        "default_icon": "icon.png",
+        "icons": {
+            "16": "icon.png",
+            "48": "icon.png",
+            "128": "icon.png"
+        },
+        "default_title": "",
+        "default_popup": "popup.html"
+      },
+    "permissions" : [
+        "clipboardWrite",
+        "storage",
+        "contextMenus",
+        "history",
+        "<all_urls>"
+    ]
+}
